@@ -1,0 +1,8 @@
+{
+  "name": "Kanavan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "735849c8"
+}
