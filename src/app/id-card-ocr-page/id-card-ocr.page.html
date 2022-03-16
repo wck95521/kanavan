@@ -1,0 +1,29 @@
+<div class="background-transparent height-100 position-absolute"></div>
+<ion-row class="height-100 ion-align-items-center">
+  <ion-col>
+    <div class="margin-left-right-40">
+      <div class="color-blue margin-bottom-10 font-size-20 text-center">
+        <b>TAKE A PICTURE OF YOUR ID CARD</b>
+      </div>
+      <div class="text-center margin-bottom-20 color-white">
+        Just align your ID card with the frame and press the button.
+      </div>
+    </div>
+    <div class="padding-left-right-20">
+      <div id="picture2" class="circle"></div>
+    </div>
+    <div class="margin-bottom-20"></div>
+    <ion-row class="margin-left-right-40 ion-justify-content-center">
+      <ion-col size="auto">
+        <div class="circle-border" (click)="capture()">
+          <ion-icon class="color-white icon" name="camera"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+    <!-- <img
+      id="Img2"
+      src="assets/human.jpg"
+      style="width: 85.6px; height: 53.98px"
+    /> -->
+  </ion-col>
+</ion-row>

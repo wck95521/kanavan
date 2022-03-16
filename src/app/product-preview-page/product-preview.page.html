@@ -1,0 +1,44 @@
+<div class="background-white height-100 header">
+  <swiper [pagination]="true">
+    <ng-template *ngFor="let image of images; let i = index" swiperSlide>
+      <img class="image" [src]="image" />
+    </ng-template>
+  </swiper>
+  <div style="margin: 20px">
+    <div class="product-name margin-bottom-20">
+      Let's say in an app with ion-slides we had the slidesPerView and loop
+      options set:
+    </div>
+    <div class="margin-bottom-20 font-size-20">
+      <b>400 KNV</b>
+    </div>
+    <ion-row class="ion-align-items-center margin-bottom-20">
+      <ion-icon class="font-size-20 gray" name="time"></ion-icon>
+      <ion-col> 2 days ago </ion-col>
+    </ion-row>
+    <ion-row class="ion-align-items-center margin-bottom-20">
+      <ion-icon class="font-size-20 gray" name="folder-open"></ion-icon>
+      <ion-col> Other </ion-col>
+    </ion-row>
+    <ion-row class="margin-bottom-20">
+      <ion-col size="auto" class="ion-no-padding margin-right-5">
+        <ion-icon class="font-size-20 gray" name="list"></ion-icon>
+      </ion-col>
+      <ion-col class="ion-no-padding">
+        Let's say in an app with ion-slides we had the slidesPerView and loop
+        options set:
+      </ion-col>
+    </ion-row>
+    <div class="margin-bottom-20 font-size-20"><b>Contact</b></div>
+    <ion-row>
+      <ion-icon class="font-size-20 gray" name="phone-portrait"></ion-icon>
+      <ion-col>
+        Let's say in an app with ion-slides we had the slidesPerView and loop
+        options set: Let's say in an app with ion-slides we had the
+        slidesPerView and loop options set: Let's say in an app with ion-slides
+        we had the slidesPerView and loop options set: Let's say in an app with
+        ion-slides we had the slidesPerView and loop options set:
+      </ion-col>
+    </ion-row>
+  </div>
+</div>

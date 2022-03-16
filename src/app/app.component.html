@@ -1,4 +1,4 @@
-<ion-app>
+<!-- <ion-app>
   <ion-split-pane contentId="main-content">
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
@@ -6,9 +6,22 @@
           <ion-list-header>Inbox</ion-list-header>
           <ion-note>hi@ionicframework.com</ion-note>
 
-          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+          <ion-menu-toggle
+            auto-hide="false"
+            *ngFor="let p of appPages; let i = index"
+          >
+            <ion-item
+              routerDirection="root"
+              [routerLink]="[p.url]"
+              lines="none"
+              detail="false"
+              routerLinkActive="selected"
+            >
+              <ion-icon
+                slot="start"
+                [ios]="p.icon + '-outline'"
+                [md]="p.icon + '-sharp'"
+              ></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -18,7 +31,11 @@
           <ion-list-header>Labels</ion-list-header>
 
           <ion-item *ngFor="let label of labels" lines="none">
-            <ion-icon slot="start" ios="bookmark-outline" md="bookmark-sharp"></ion-icon>
+            <ion-icon
+              slot="start"
+              ios="bookmark-outline"
+              md="bookmark-sharp"
+            ></ion-icon>
             <ion-label>{{ label }}</ion-label>
           </ion-item>
         </ion-list>
@@ -26,4 +43,78 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
+</ion-app> -->
+<ion-app>
+  <ion-menu side="start" contentId="main" swipe-gesture="false">
+    <ion-content>
+      <ion-row
+        class="ion-align-items-center margin-left-40 margin-top-40 margin-bottom-30"
+      >
+        <ion-col size="auto">
+          <img src="../assets/person-placeholder-300x300.jpg" class="circle" />
+        </ion-col>
+        <ion-col>
+          <div class="margin-bottom-5 font-size-20 dot">{{ email }}</div>
+          <div class="dot color-purple">{{ username }}</div>
+        </ion-col>
+      </ion-row>
+      <div class="line"></div>
+      <div class="margin-left-30" *ngFor="let page of appPages; let i = index">
+        <ion-item (click)="goTo(page)" lines="none" class="margin-bottom-20">
+          <ion-icon
+            class="color-purple"
+            slot="start"
+            name="{{ page.icon }}"
+          ></ion-icon>
+          <ion-label>{{ page.title }}</ion-label>
+        </ion-item>
+      </div>
+    </ion-content>
+  </ion-menu>
+
+  <div class="height-100">
+    <!-- <ion-content style="background-color: transparent"> -->
+    <div
+      class="width-100 background-white padding-20 header"
+      *ngIf="shouldShowHeader()"
+    >
+      <ion-row>
+        <ion-icon
+          class="font-size-24"
+          name="menu"
+          (click)="openMenu()"
+        ></ion-icon>
+        <ion-col
+          class="ion-no-padding ion-align-self-center font-size-20 margin-left-20"
+        >
+          <div>
+            <b>{{ title }}</b>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div
+      class="width-100 background-white padding-20 header"
+      *ngIf="shouldShowBackButton()"
+    >
+      <ion-row>
+        <ion-icon
+          class="font-size-24"
+          name="arrow-back"
+          (click)="back()"
+        ></ion-icon>
+        <ion-col
+          class="ion-no-padding ion-align-self-center font-size-20 margin-left-20"
+        >
+          <div>
+            <b>{{ title }}</b>
+          </div>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-router-outlet id="main"></ion-router-outlet>
+    <!-- </ion-content> -->
+    <!-- <ion-router-outlet id="main"></ion-router-outlet> -->
+  </div>
+  <!-- <ion-router-outlet id="main"></ion-router-outlet> -->
 </ion-app>

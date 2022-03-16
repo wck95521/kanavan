@@ -1,0 +1,119 @@
+<div class="background-white height-100 padding-20 header">
+  <div class="font-20">Add product images</div>
+  <div class="color-grey margin-top-5">
+    Add upto 5 images. First image is your product's cover image that will be
+    highlighted everywhere
+  </div>
+  <ion-row>
+    <ion-col
+      size="auto"
+      class="margin-top-10 margin-right-10 ion-no-padding"
+      *ngFor="let image of images; let i = index"
+    >
+      <img class="image" [src]="image" />
+    </ion-col>
+    <ion-col class="margin-top-10 ion-no-padding" (click)="pick()">
+      <div class="add image">
+        <ion-icon name="add" class="icon" color="gray"></ion-icon>
+      </div>
+    </ion-col>
+  </ion-row>
+  <div class="margin-top-30 font-20">Enter product details</div>
+  <div class="color-grey margin-top-20">Select product category</div>
+  <ion-item class="item margin-top-10" lines="none">
+    <ion-label>Category</ion-label>
+    <ion-select [(ngModel)]="category" okText="Okay" cancelText="Dismiss">
+      <ion-select-option *ngFor="let category of categories" [value]="category"
+        >{{ category }}</ion-select-option
+      >
+    </ion-select>
+  </ion-item>
+  <div class="color-grey margin-top-15">Product name</div>
+  <ion-item class="item margin-top-10" lines="none">
+    <ion-input
+      [(ngModel)]="productName"
+      maxlength="100"
+      oninput="this.value=this.value.slice(0,this.maxlength)"
+    ></ion-input>
+  </ion-item>
+  <div class="color-grey margin-top-15">Price</div>
+  <ion-item class="item margin-top-10" lines="none">
+    <ion-input
+      type="number"
+      [(ngModel)]="price"
+      maxlength="10"
+      oninput="this.value=this.value.slice(0,this.maxlength)"
+    ></ion-input>
+    <div class="margin-left-10 margin-right-10">KNV</div>
+  </ion-item>
+  <div class="color-grey margin-top-15">
+    Hashtags (Maximum {{ maximumHashTag }} hashtags)
+  </div>
+  <ion-row>
+    <ion-col
+      class="margin-top-10 hashtag"
+      *ngFor="let hashtag of hashtags; let i = index"
+      size="auto"
+    >
+      <ion-row class="ion-align-items-center">
+        <ion-icon
+          class="margin-right-10"
+          name="close"
+          (click)="removeHashtag(i)"
+        ></ion-icon>
+        <ion-col class="ion-no-padding margin-right-5">
+          <div class="dot">{{ hashtag }}</div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row class="margin-top-10">
+    <ion-col class="ion-no-padding">
+      <ion-item class="item" lines="none">
+        <ion-row>
+          <ion-col class="ion-no-padding">
+            <div>#</div>
+          </ion-col>
+        </ion-row>
+        <ion-col class="ion-no-padding margin-left-10">
+          <ion-input
+            [(ngModel)]="hashtag"
+            maxlength="50"
+            oninput="this.value=this.value.slice(0,this.maxlength)"
+          ></ion-input>
+        </ion-col>
+      </ion-item>
+    </ion-col>
+    <ion-col
+      *ngIf="hashtags.length < maximumHashTag"
+      size="auto"
+      class="ion-no-padding margin-left-10"
+    >
+      <ion-icon
+        name="add-circle"
+        class="icon"
+        color="purple"
+        (click)="addHashtag()"
+      ></ion-icon>
+    </ion-col>
+  </ion-row>
+  <div class="color-grey margin-top-15">Contact</div>
+  <ion-item class="item margin-top-10" lines="none">
+    <ion-textarea
+      [(ngModel)]="contact"
+      maxlength="250"
+      rows="3"
+      oninput="this.value=this.value.slice(0,this.maxlength)"
+    ></ion-textarea>
+  </ion-item>
+  <div class="color-grey margin-top-15">Product description</div>
+  <ion-item class="item margin-top-10" lines="none">
+    <ion-textarea
+      [(ngModel)]="productDescription"
+      maxlength="500"
+      rows="6"
+      oninput="this.value=this.value.slice(0,this.maxlength)"
+      placeholder="Enter description here"
+    ></ion-textarea>
+  </ion-item>
+</div>

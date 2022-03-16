@@ -1,0 +1,70 @@
+.background-transparent {
+  background-color: transparent;
+}
+
+.height-100 {
+  height: 100%;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.circle {
+  box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.7);
+  border-radius: 100%;
+  height: calc(100vw - 40px);
+}
+
+.color-blue {
+  color: #88ffff;
+}
+
+.icon {
+  font-size: 30px;
+  display: block;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.circle-border {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  border: 5px solid transparent;
+  background: linear-gradient(#4d2b90, #b084f4) padding-box,
+    linear-gradient(45deg, white, white) border-box;
+}
+
+.color-white {
+  color: white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-size-20 {
+  font-size: 20px;
+}
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+
+.margin-left-right-40 {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.padding-left-right-20 {
+  padding-left: 20px;
+  padding-right: 20px;
+}

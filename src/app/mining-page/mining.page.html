@@ -1,0 +1,96 @@
+<div class="background-white height-100 header">
+  <div class="margin-right-20 margin-left-20">
+    <div class="news">
+      <div class="font-18"><b>Welcome to Kanavan</b></div>
+      <div>
+        the latest news will be posted here, press the (GET MORE) button every
+        24 hours to get more tokens, you will be able to transfer tokens to the
+        wallet in phase 3.
+      </div>
+    </div>
+    <ion-row class="ion-justify-content-center mining-pool">
+      <ion-col size="auto" class="ion-align-self-center font-30">
+        <ion-icon name="rocket"></ion-icon>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-row>
+          <ion-col>
+            <div>Total supply</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="font-16"><b>{{ totalSupply }}</b></div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+      <ion-col size="auto">
+        <ion-row>
+          <ion-col>
+            <div>Current supply</div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <div class="font-16"><b>{{ currentSupply }}</b></div>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="box">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <div class="dot grad text">K</div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center margin-top-5">
+      <ion-col size="auto">
+        <div class="font-20 color-purple"><b>{{ unverifiedBalance }}</b></div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center margin-bottom-20">
+      <ion-col size="auto">
+        <div class="color-yellow">Unverified balance</div>
+      </ion-col>
+    </ion-row>
+    <ion-button
+      *ngIf="nextDay === '00:00:00'"
+      color="purple"
+      expand="block"
+      fill="outline"
+      (click)="mining()"
+      >Get more
+    </ion-button>
+    <ion-button
+      *ngIf="nextDay !== '00:00:00'"
+      color="medium"
+      expand="block"
+      fill="outline"
+      >{{ nextDay }}</ion-button
+    >
+  </div>
+  <div class="box">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <div class="round round-text">K</div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center margin-top-5">
+      <ion-col size="auto">
+        <div class="font-20 color-purple"><b>{{ transferableBalance }}</b></div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-center margin-bottom-20">
+      <ion-col size="auto">
+        <div class="color-yellow">Transferable balance</div>
+      </ion-col>
+    </ion-row>
+    <ion-button *ngIf="transferableBalance > 0" color="purple" expand="block"
+      >Send to wallet</ion-button
+    >
+    <ion-button *ngIf="transferableBalance === 0" color="medium" expand="block"
+      >Send to wallet</ion-button
+    >
+  </div>
+</div>
