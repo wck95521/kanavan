@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { MenuController } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { CommonService } from './common.service';
 import { SharedService } from './shared.service';
 import { StorageService } from './storage.service';
@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
     private menu: MenuController,
     private commonService: CommonService,
     private storageService: StorageService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private platform: Platform
   ) {
     this.appPages = [
       { title: 'Main', url: 'mining', icon: 'home' },
@@ -64,7 +65,7 @@ export class AppComponent implements OnInit {
     );
   }
 
-  public back() {}
+  // public back() {}
 
   public goTo(page: any) {
     this.router.navigate([page.url]);
@@ -81,6 +82,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.platform.backButton.subscribeWithPriority(
+      10,
+      (processNextHandler) => {}
+    );
     this.sharedService.notify$.subscribe((data) => {
       this.setMenuHeader();
     });

@@ -10,6 +10,7 @@ import { CameraPreview } from '@awesome-cordova-plugins/camera-preview/ngx';
 import { ImagePicker } from '@awesome-cordova-plugins/image-picker/ngx';
 import { HttpClientModule } from '@angular/common/http';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 // import { ImagePicker } from '@ionic-native/image-picker/ngx';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     CameraPreview,
     ImagePicker,
+    InAppBrowser,
     NativeStorage,
   ],
   bootstrap: [AppComponent],

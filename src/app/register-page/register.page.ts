@@ -3,6 +3,7 @@ import { CountryService } from '../country.service';
 import { NetworkService } from '../network.service';
 import { CommonService } from '../common.service';
 import { Router } from '@angular/router';
+import { InAppBrowser } from '@awesome-cordova-plugins/in-app-browser/ngx';
 
 @Component({
   selector: 'app-register',
@@ -17,12 +18,14 @@ export class RegisterPage implements OnInit {
   public countries: any[];
   public passwordType: string;
   public passwordIcon: string;
+  public tAndM: boolean;
 
   constructor(
     private countryService: CountryService,
     private networkService: NetworkService,
     private commonService: CommonService,
-    private router: Router
+    private router: Router,
+    private iab: InAppBrowser
   ) {}
 
   ngOnInit() {
@@ -37,9 +40,19 @@ export class RegisterPage implements OnInit {
     }
   }
 
+  goToTermsAndConditions() {
+    const browser = this.iab.create(
+      'https://kanavan.net/Terms-And-Conditions.html'
+    );
+  }
+
   public hideShowPassword(): void {
     this.passwordType = this.passwordType === 'text' ? 'password' : 'text';
     this.passwordIcon = this.passwordIcon === 'eye-off' ? 'eye' : 'eye-off';
+  }
+
+  public back() {
+    this.router.navigate(['/login']);
   }
 
   private check(): boolean {
@@ -57,6 +70,12 @@ export class RegisterPage implements OnInit {
     }
     if (!this.country || this.country.length === 0) {
       this.commonService.presentToast('Please enter the country');
+      return false;
+    }
+    if (!this.tAndM) {
+      this.commonService.presentToast(
+        'Please agree to the Terms and Conditions'
+      );
       return false;
     }
     return true;
