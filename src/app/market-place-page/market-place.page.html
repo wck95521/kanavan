@@ -1,0 +1,60 @@
+<div class="margin-bottom-64"></div>
+<ion-content fullscreen="true">
+  <div class="padding-20">
+    <ion-row class="ion-align-items-center search-box">
+      <ion-icon name="search" class="font-24 search-icon"></ion-icon>
+      <ion-col>
+        <ion-input
+          class="input"
+          placeholder="Find your product"
+          [(ngModel)]="search"
+          type="text"
+        ></ion-input>
+      </ion-col>
+    </ion-row>
+    <div class="banner"></div>
+    <div class="scroll-menu margin-bottom-15">
+      <div
+        (click)="selectCategory(i)"
+        id="cate-{{ i }}"
+        class="scroll-menu-item"
+        *ngFor="let category of categories; let i = index"
+      >
+        {{ category }}
+      </div>
+    </div>
+    <ion-list>
+      <div *ngFor="let d of viewData; let i = index">
+        <ion-row class="margin-bottom-10">
+          <ion-col size="6" class="padding-right-7">
+            <img class="image margin-bottom-10" [src]="d.left.image1" />
+            <div class="dot font-18 margin-bottom-5">
+              {{ d.left.productName }}
+            </div>
+            <div class="color-purple font-18">
+              <b>KNV {{ d.left.price }}</b>
+            </div>
+          </ion-col>
+          <ion-col size="6" class="margin-top-20 padding-left-7">
+            <div *ngIf="d.right">
+              <img class="image margin-bottom-10" [src]="d.right.image1" />
+              <div class="dot font-18 margin-bottom-5">
+                {{ d.right.productName }}
+              </div>
+              <div class="color-purple font-18">
+                <b>KNV {{ d.right.price }}</b>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </ion-list>
+    <ion-infinite-scroll (ionInfinite)="loadData2($event)">
+      <ion-infinite-scroll-content
+        loadingSpinner="bubbles"
+        loadingText="Loading more data..."
+      >
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </div>
+</ion-content>

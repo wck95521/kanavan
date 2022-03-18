@@ -10,8 +10,8 @@ import { AlertController } from '@ionic/angular';
   providedIn: 'root',
 })
 export class CommonService {
-  // private static BASE_API = 'http://192.168.1.120:4000';
-  private static BASE_API = 'https://api.kanavan.net';
+  private static BASE_API = 'http://192.168.1.120:4000';
+  // private static BASE_API = 'https://api.kanavan.net';
   public static MINING_PERIOD = 86400000;
   public static TOTAL_SUPPLY = 100000000;
   public static USERS_API = CommonService.BASE_API + '/users';

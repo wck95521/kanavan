@@ -1,0 +1,33 @@
+<div class="background-white height-100 header">
+  <div class="padding-20">
+    <div class="purple-card">
+      <div class="color-white font-22 margin-bottom-10">
+        <div class="padding-20"><b>{{ products.length }} Products</b></div>
+      </div>
+      <div *ngFor="let product of products; let i = index" class="white-card">
+        <img
+          class="card-image float-left margin-right-10"
+          [src]="product.image1"
+        />
+        <div class="dot font-20 margin-top-10 margin-bottom-10">
+          {{ product.productName }}
+        </div>
+        <div class="color-purple font-20">
+          <b>KNV {{ product.price }}</b>
+        </div>
+      </div>
+      <div class="add-card" *ngIf="products.length < maximumProducts">
+        <ion-row
+          class="ion-align-items-center ion-justify-content-center height-100"
+        >
+          <ion-col size="auto">
+            <div class="color-gray">Create</div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <div class="padding-top-bottom-20 color-gray">
+        Maximum create products {{ maximumProducts }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,9 +8,23 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'market-place',
+    loadChildren: () =>
+      import('./market-place-page/market-place.module').then(
+        (m) => m.MarketPlacePageModule
+      ),
+  },
+  {
     path: 'login',
     loadChildren: () =>
       import('./login-page/login.module').then((m) => m.LoginPageModule),
+  },
+  {
+    path: 'product-list',
+    loadChildren: () =>
+      import('./product-list-page/product-list.module').then(
+        (m) => m.ProductListPageModule
+      ),
   },
   {
     path: 'mining',

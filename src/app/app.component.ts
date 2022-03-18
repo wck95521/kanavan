@@ -31,6 +31,8 @@ export class AppComponent implements OnInit {
       // { title: 'KYC', url: 'kyc', icon: 'person' },
       { title: 'Settings', url: 'settings', icon: 'settings' },
       // { title: 'Add new product', url: 'add-product', icon: 'shirt' },
+      { title: 'Market Place', url: 'market-place', icon: 'shirt' },
+      { title: 'My Products', url: 'product-list', icon: 'create' },
     ];
     this.router.events.subscribe((events) => {
       if (events instanceof NavigationEnd) {
@@ -55,7 +57,12 @@ export class AppComponent implements OnInit {
   }
 
   public shouldShowHeader() {
-    return this.router.url === '/mining' || this.router.url === '/settings';
+    return (
+      this.router.url === '/mining' ||
+      this.router.url === '/settings' ||
+      this.router.url === '/market-place' ||
+      this.router.url === '/product-list'
+    );
   }
 
   public shouldShowBackButton() {
@@ -103,7 +110,7 @@ export class AppComponent implements OnInit {
         });
       },
       (err) => {
-        this.router.navigate(['/login']);
+        this.router.navigate(['/market-place']);
       }
     );
   }
